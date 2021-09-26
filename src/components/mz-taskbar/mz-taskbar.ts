@@ -1,5 +1,5 @@
 
-class MZDesktop extends HTMLElement {
+class MZTaskbar extends HTMLElement {
   constructor() {
     super();
     const shadowRoot = this.attachShadow({mode: 'closed'});
@@ -9,7 +9,8 @@ class MZDesktop extends HTMLElement {
     :host {
       display: flex;
       width: 100%;
-      height: 100%;
+      height: 40px;
+      background-color: hsla(0, 0%, 99.6%, .8);
     }
     </style>
     <slot></slot>
@@ -19,4 +20,4 @@ class MZDesktop extends HTMLElement {
   }
 }
 
-window.customElements.define('mz-desktop', MZDesktop);
+window.customElements.define('mz-taskbar', MZTaskbar);
