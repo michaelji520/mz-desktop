@@ -4,6 +4,7 @@ import DEFAULT_BACKGROUND from './assets/default-background.jfif';
 class MZContainer extends HTMLElement {
   constructor() {
     super();
+
     const shadowRoot = this.attachShadow({mode: 'closed'});
 
     shadowRoot.innerHTML = `
@@ -20,7 +21,9 @@ class MZContainer extends HTMLElement {
     </style>
     <slot></slot>
     `;
+    this.oncontextmenu = () => false;
   }
+
 }
 
 window.customElements.define('mz-container', MZContainer);

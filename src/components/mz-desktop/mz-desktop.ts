@@ -15,7 +15,6 @@ class MZDesktop extends HTMLElement {
     <slot></slot>
     `;
     
-
   }
 }
 
