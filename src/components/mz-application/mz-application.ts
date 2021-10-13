@@ -7,9 +7,9 @@ class MZApplication extends HTMLElement {
     <style>
     :host {
       display: flex;
-      width: 40px;
-      height: 40px;
-      margin: 5px;
+      padding: 16px;
+      width: 56px;
+      height: 66px;
       background: #FFF;
     }
     </style>
