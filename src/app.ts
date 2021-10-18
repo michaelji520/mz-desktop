@@ -11,7 +11,7 @@ console.log(apps);
 const app = document.querySelector('#app');
 
 const icons = apps.map((i) => {
-  return `<mz-application icon="${i.icon}" name="${i.name}"></mz-application>`;
+  return `<mz-application icon="${i.icon}" name="${i.name}" title="${i.name}"></mz-application>`;
 });
 
 app.innerHTML = `

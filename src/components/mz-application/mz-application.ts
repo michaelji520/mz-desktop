@@ -10,7 +10,7 @@ class MZApplication extends HTMLElement {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 12px 12px 0 12px;
+      padding: 12px 10px 0 10px;
       transition: all .2s ease-in-out;
     }
     :host(:hover) {
@@ -23,13 +23,14 @@ class MZApplication extends HTMLElement {
     span {
       height: 34px;
       line-height: 17px;
-      max-width: 54px;
+      max-width: 56px;
       font-size: .8em;
       overflow: hidden;
       text-overflow: ellipsis;
       text-align: center;
       color: #fafafa;
       margin: 4px 0;
+      cursor: default;
       text-shadow: 0 0 4px rgb(0 0 0 / 60%);
     }
     </style>
