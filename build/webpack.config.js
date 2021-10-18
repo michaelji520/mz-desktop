@@ -1,9 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const MZQiniuUploadWebpackPlugin = require('mz-qiniu-upload-webpack-plugin');
-
-const PUBLISH_CONFIG = require('./PUBLISH_CONFIG.js');
 
 const isProd = process.env.NODE_ENV === 'production';
 const isAutoPublish = process.env.AUTO_PUBLISH === 'true';
@@ -56,6 +53,5 @@ module.exports = {
       chunks: ['app']
     }),
     isProd && new CleanWebpackPlugin(),
-    isProd && isAutoPublish && new MZQiniuUploadWebpackPlugin(PUBLISH_CONFIG)
   ].filter(i => !!i)
 };

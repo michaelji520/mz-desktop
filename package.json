@@ -29,7 +29,6 @@
     "less": "^4.1.1",
     "less-loader": "^8.1.1",
     "mini-css-extract-plugin": "^1.4.1",
-    "mz-qiniu-upload-webpack-plugin": "^1.0.3",
     "postcss": "^8.2.10",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.1.0",
@@ -38,6 +37,5 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
