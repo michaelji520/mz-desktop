@@ -20,7 +20,7 @@ module.exports = {
     },
     extensions: ['.ts', '.js'],
   },
-  devServer: isProd ? undefined : {host: '0.0.0.0'},
+  devServer: isProd ? undefined : {host: '127.0.0.1'},
   module: {
     rules: [
       {
