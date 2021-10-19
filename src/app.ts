@@ -4,6 +4,7 @@ import './components/mz-desktop/mz-desktop';
 import './components/mz-container/mz-container';
 import './components/mz-taskbar/mz-taskbar';
 import './components/mz-application/mz-application';
+import './components/mz-iframe/mz-iframe';
 import apps from './apps/apps';
 
 console.log(apps);
@@ -35,6 +36,9 @@ app.innerHTML = `
         ${icons.join('')}
       </div>
     </mz-desktop>
+    <div class="window-wrapper">
+      <mz-iframe></mz-iframe>
+    </div>
     <mz-taskbar></mz-taskbar>
   </mz-container>
 `;

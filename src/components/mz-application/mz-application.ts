@@ -50,7 +50,6 @@ class MZApplication extends HTMLElement {
     console.log(icon, name);
     this.shadowRoot.querySelector('img').src = icon;
     this.shadowRoot.querySelector('span').textContent= name;
-
   }
 
   /**
