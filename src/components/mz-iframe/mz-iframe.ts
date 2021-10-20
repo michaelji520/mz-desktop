@@ -2,7 +2,7 @@
 class MZIframe extends HTMLElement {
   constructor() {
     super();
-    const shadowRoot = this.attachShadow({mode: 'closed'});
+    const shadowRoot = this.attachShadow({mode: 'open'});
 
     shadowRoot.innerHTML = `
     <style>
@@ -16,23 +16,61 @@ class MZIframe extends HTMLElement {
       height: 80%;
       border-radius: 6px;
       transition: all .2s ease-in-out;
-      background-color: #fefefe;
+      background-color: #e7eaec;
       overflow: hidden;
+      box-shadow: 0 0 6px rgb(0 0 0 / 25%);
     }
-    .window-title {
+    .header {
       display: flex;
       align-items: center;
       background: #f0f0f0;
       height: 26px;
     }
-    .window-content {
+    .icon {
+      margin: 0 10px 0 6px;
+      width: 14px;
+      height: 14px;
+    }
+    .name {
+      font-size: .64em;
+    }
+    .content {
       flex-grow: 1;
+      margin: 0;
+      padding: 0;
+    }
+    iframe {
+      border: 0;
+      width: 100%;
+      height: 100%;
     }
     </style>
-    <div class="window-title">Transmission</div>
-    <div class="window-content"></div>
+    <div class="header">
+      <div class="title">
+        <img class="icon" src="" alt="">
+        <span class="name"><span>
+      </div>
+      <div class="actions">
+        <i class="close-btn">x</i>
+      </div>
+    </div>
+    <div class="content">
+      <iframe></iframe>
+    </div>
     `;
     
+  }
+
+  /**
+   * @description 当 custom element首次被插入文档DOM时，被调用。
+   */
+  connectedCallback() {
+    const icon = this.getAttribute('icon');
+    const name = this.getAttribute('name');
+    const link = this.getAttribute('link');
+    this.shadowRoot.querySelector('img').src = icon;
+    this.shadowRoot.querySelector('span').textContent= name;
+    this.shadowRoot.querySelector('iframe').src = link;
   }
 }
 

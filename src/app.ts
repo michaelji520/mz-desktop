@@ -37,7 +37,7 @@ app.innerHTML = `
       </div>
     </mz-desktop>
     <div class="window-wrapper">
-      <mz-iframe></mz-iframe>
+      <mz-iframe icon="${apps[2].icon}"}" name="${apps[2].name}" link="${apps[2].link}"></mz-iframe>
     </div>
     <mz-taskbar></mz-taskbar>
   </mz-container>

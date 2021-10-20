@@ -47,7 +47,6 @@ class MZApplication extends HTMLElement {
   connectedCallback() {
     const icon = this.getAttribute('icon');
     const name = this.getAttribute('name');
-    console.log(icon, name);
     this.shadowRoot.querySelector('img').src = icon;
     this.shadowRoot.querySelector('span').textContent= name;
   }

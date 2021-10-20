@@ -9,6 +9,7 @@ export default [
   },
   {
     name: 'Transmission',
-    icon: require('./assets/transmission.png').default
+    icon: require('./assets/transmission.png').default,
+    link: 'http://10.244.186.0:9091/'
   },
 ];
