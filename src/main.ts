@@ -4,7 +4,7 @@ import './components/mz-desktop/mz-desktop';
 import './components/mz-container/mz-container';
 import './components/mz-taskbar/mz-taskbar';
 import './components/mz-application/mz-application';
-import './components/mz-iframe/mz-iframe';
+import MZIframe  from './components/mz-iframe/mz-iframe';
 import apps from './apps/apps';
 
 console.log(apps);
@@ -13,6 +13,18 @@ const app = document.querySelector('#app');
 
 const icons = apps.map((i) => {
   return `<mz-application icon="${i.icon}" name="${i.name}" title="${i.name}"></mz-application>`;
+});
+
+window.addEventListener('dblclick', (e) => {
+  const el = e.target as HTMLElement;
+  console.log(el);
+  if (el.tagName.toLowerCase() === 'mz-application') {
+    console.log('open app');
+    const workspace = document.querySelector('.workspace');
+    workspace.appendChild(new MZIframe({
+      ...apps[2]
+    }));
+  }
 });
 
 app.innerHTML = `
@@ -36,8 +48,7 @@ app.innerHTML = `
         ${icons.join('')}
       </div>
     </mz-desktop>
-    <div class="window-wrapper">
-      <mz-iframe icon="${apps[2].icon}"}" name="${apps[2].name}" link="${apps[2].link}"></mz-iframe>
+    <div class="workspace">
     </div>
     <mz-taskbar></mz-taskbar>
   </mz-container>

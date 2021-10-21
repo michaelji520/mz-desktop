@@ -8,7 +8,7 @@ const isAutoPublish = process.env.AUTO_PUBLISH === 'true';
 module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
-    app: path.resolve(__dirname, '../src/app.ts'),
+    main: path.resolve(__dirname, '../src/main.ts'),
   },
   output: {
     filename: isProd ? '[name].[hash:8].js' : '[name].js',
@@ -50,7 +50,7 @@ module.exports = {
       filename: 'index.html',
       favicon: path.resolve(__dirname, '../public/favicon.ico'),
       template: path.resolve(__dirname, '../public/index.html'),
-      chunks: ['app']
+      chunks: ['main']
     }),
     isProd && new CleanWebpackPlugin(),
   ].filter(i => !!i)
