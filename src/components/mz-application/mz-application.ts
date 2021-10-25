@@ -1,9 +1,10 @@
 class MZApplication extends HTMLElement {
+  shadow: HTMLElement = null;
   constructor() {
     super();
-    const shadowRoot = this.attachShadow({mode: 'open'});
+    this.shadow = this.attachShadow({mode: 'closed'});
 
-    shadowRoot.innerHTML = `
+    shadow.innerHTML = `
     <style>
     :host {
       display: flex;
@@ -37,7 +38,6 @@ class MZApplication extends HTMLElement {
     <img src="" />
     <span></span>
     `;
-    
 
   }
 

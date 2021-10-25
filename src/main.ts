@@ -12,7 +12,7 @@ console.log(apps);
 const app = document.querySelector('#app');
 
 /** Opened app list */
-const activeApps = [];
+const activeApps = {};
 
 const icons = apps.map((i) => {
   return `<mz-application icon="${i.icon}" name="${i.name}" title="${i.name}"></mz-application>`;
