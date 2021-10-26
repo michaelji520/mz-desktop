@@ -1,10 +1,10 @@
 class MZApplication extends HTMLElement {
-  shadow: HTMLElement = null;
+  shadow: any= null;
   constructor() {
     super();
     this.shadow = this.attachShadow({mode: 'closed'});
 
-    shadow.innerHTML = `
+    this.shadow.innerHTML = `
     <style>
     :host {
       display: flex;
@@ -47,8 +47,8 @@ class MZApplication extends HTMLElement {
   connectedCallback() {
     const icon = this.getAttribute('icon');
     const name = this.getAttribute('name');
-    this.shadowRoot.querySelector('img').src = icon;
-    this.shadowRoot.querySelector('span').textContent= name;
+    this.shadow.querySelector('img').src = icon;
+    this.shadow.querySelector('span').textContent= name;
   }
 
   /**

@@ -24,6 +24,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(style)$/i,
+        use: [
+          {loader: 'raw-loader'},
+          {
+            loader: 'less-loader',
+            options: {lessOptions: {strictMath: true}}
+          }
+        ]
+      },
+      {
         test: /\.(less|css)$/i,
         use: [
           {loader: 'style-loader'},

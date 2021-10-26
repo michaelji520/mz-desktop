@@ -5,9 +5,10 @@ import './components/mz-container/mz-container';
 import './components/mz-taskbar/mz-taskbar';
 import './components/mz-application/mz-application';
 import MZIframe  from './components/mz-iframe/mz-iframe';
+import MZWindow from './components/mz-window/mz-window';
 import apps from './apps/apps';
 
-console.log(apps);
+const instance = new MZWindow();
 
 const app = document.querySelector('#app');
 
@@ -24,9 +25,10 @@ window.addEventListener('dblclick', (e) => {
   if (el.tagName.toLowerCase() === 'mz-application') {
     console.log('open app');
     const workspace = document.querySelector('.workspace');
-    workspace.appendChild(new MZIframe({
-      ...apps[2]
-    }));
+    // workspace.appendChild(new MZIframe({
+    //   ...apps[2]
+    // }));
+    workspace.appendChild(instance);
   }
 });
 

@@ -55,7 +55,10 @@ class MZIframe extends HTMLElement {
       padding: 0 14px;
     }
     .close-btn:hover {
-      background: rgba(255,0,0,.8);
+      background: rgba(255, 0, 0, .8);
+    }
+    .close-btn:hover img {
+      filter: invert(1);
     }
     iframe {
       border: 0;
