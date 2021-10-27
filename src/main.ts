@@ -8,7 +8,10 @@ import MZIframe  from './components/mz-iframe/mz-iframe';
 import MZWindow from './components/mz-window/mz-window';
 import apps from './apps/apps';
 
-const instance = new MZWindow();
+const instance = new MZWindow({
+  name: 'TEST',
+  icon: require('./apps/assets/transmission.png').default
+});
 
 const app = document.querySelector('#app');
 

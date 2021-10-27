@@ -1,4 +1,5 @@
 import style from './mz-window.style';
+// import {IWindowProps} from './types';
 
 const ACTION_ICONS = {
   MAX: require('./assets/maximize.png').default,
@@ -7,13 +8,22 @@ const ACTION_ICONS = {
 }
 
 class MZWindow extends HTMLElement {
+
   /** window icon */
   icon: string = '';
   /** window name */
   name: string = '';
+  /** app html container */
+  container: HTMLElement = null;
 
-  constructor({}) {
+
+  constructor(props) {
     super();
+
+    const {icon = '', name = '', container = null} = props;
+    this.icon = icon;
+    this.name = name;
+    this.container = container || this;
     const shadowRoot = this.attachShadow({mode: 'open'});
 
     shadowRoot.innerHTML = `
@@ -30,7 +40,7 @@ class MZWindow extends HTMLElement {
       </div>
     </div>
     <div class="content">
-      <iframe></iframe>
+      <slot></slot>
     </div>
     `;
   }
@@ -39,26 +49,19 @@ class MZWindow extends HTMLElement {
    * @description 当 custom element首次被插入文档DOM时，被调用。
    */
   connectedCallback() {
-    const {icon, name, link} = this.props || {
-      icon: this.getAttribute('icon'),
-      name: this.getAttribute('name'),
-    };
-
-    this.shadowRoot.querySelector('img').src = icon;
-    this.shadowRoot.querySelector('span').textContent= name;
-    this.shadowRoot.querySelector('iframe').src = link;
-    this.shadowRoot.querySelector('.close-btn').addEventListener('click', this.onClickClose);
+    this.shadowRoot.querySelector('.close').addEventListener('click', this.onClickClose);
   }
 
   onClickClose(e: Event) {
-    // el.parentNode.removeChild(el);
+    const el = this.container;
+    el && el.parentNode.removeChild(el);
   }
 
   /**
    * @description 当 custom element从文档DOM中删除时，被调用。
    */
   disconnectedCallback() {
-    this.shadowRoot.querySelector('.close-btn').removeEventListener('click', this.onClickClose);
+    this.shadowRoot.querySelector('.close').removeEventListener('click', this.onClickClose);
   }
 
 }
