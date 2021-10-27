@@ -20,9 +20,9 @@ class MZWindow extends HTMLElement {
   constructor(props: IWindowProps) {
     super();
 
-    const {icon = '', title= '', container = null} = props;
+    const {icon = '', name = '', container = null} = props;
     this.icon = icon;
-    this.title = title;
+    this.title = name;
     this.container = container || this;
     console.log(this.container);
     const shadowRoot = this.attachShadow({mode: 'open'});
@@ -32,7 +32,7 @@ class MZWindow extends HTMLElement {
     <div class="header">
       <div class="title">
         <img class="icon" src="${icon}" alt="">
-        <span class="name">${title}<span>
+        <span class="name">${name}<span>
       </div>
       <div class="actions">
         <i class="minimize"><img width="8" height="8" src="${ACTION_ICONS.MIN}"></i>

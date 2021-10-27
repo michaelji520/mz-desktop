@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const instance = new MZWindow({
-  title: 'Transmission',
+  name: 'Transmission',
   icon: require('./apps/assets/transmission.png').default,
 });
 
