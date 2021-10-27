@@ -8,7 +8,7 @@
   height: 80%;
   border-radius: 6px;
   transition: all .2s ease-in-out;
-  background-color: #e7eaec;
+  background-color: #fefefe;
   overflow: hidden;
   box-shadow: 0 0 6px rgb(0 0 0 / 25%);
 }
@@ -19,13 +19,18 @@
   background: #f0f0f0;
   height: 26px;
 }
-.icon {
-  margin: 0 10px 0 6px;
-  width: 14px;
-  height: 14px;
-}
-.name {
-  font-size: .64em;
+.title {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  .icon {
+    margin: 0 10px 0 6px;
+    width: 14px;
+    height: 14px;
+  }
+  .name {
+    font-size: .64em;
+  }
 }
 .content {
   flex-grow: 1;
@@ -36,14 +41,17 @@
   display: flex;
   align-items: center;
   transition: all 60ms ease-in-out;
-  height: 100%
-}
-.close {
-  display: flex;
-  align-items: center;
   height: 100%;
-  padding: 0 14px;
-  &:hover {
+  .maximize, .minimize, .close {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 14px;
+  }
+  .maximize:hover, .minimize:hover {
+    background-color: rgba(136, 136, 136, .2);
+  }
+  .close:hover {
     background: rgba(255, 0, 0, .8);
     img {
       filter: invert(1);

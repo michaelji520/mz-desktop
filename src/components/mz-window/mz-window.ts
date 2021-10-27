@@ -1,5 +1,5 @@
 import style from './mz-window.style';
-// import {IWindowProps} from './types';
+import {IWindowProps} from './types';
 
 const ACTION_ICONS = {
   MAX: require('./assets/maximize.png').default,
@@ -12,26 +12,27 @@ class MZWindow extends HTMLElement {
   /** window icon */
   icon: string = '';
   /** window name */
-  name: string = '';
+  title: string = '';
   /** app html container */
   container: HTMLElement = null;
 
 
-  constructor(props) {
+  constructor(props: IWindowProps) {
     super();
 
-    const {icon = '', name = '', container = null} = props;
+    const {icon = '', title= '', container = null} = props;
     this.icon = icon;
-    this.name = name;
+    this.title = title;
     this.container = container || this;
+    console.log(this.container);
     const shadowRoot = this.attachShadow({mode: 'open'});
 
     shadowRoot.innerHTML = `
     <style>${style}</style>
     <div class="header">
       <div class="title">
-        <img class="icon" src="" alt="">
-        <span class="name"><span>
+        <img class="icon" src="${icon}" alt="">
+        <span class="name">${title}<span>
       </div>
       <div class="actions">
         <i class="minimize"><img width="8" height="8" src="${ACTION_ICONS.MIN}"></i>
@@ -52,8 +53,10 @@ class MZWindow extends HTMLElement {
     this.shadowRoot.querySelector('.close').addEventListener('click', this.onClickClose);
   }
 
-  onClickClose(e: Event) {
+  // To use this, should write as arrow function 
+  onClickClose = (e: Event) => {
     const el = this.container;
+    console.log(this.container)
     el && el.parentNode.removeChild(el);
   }
 

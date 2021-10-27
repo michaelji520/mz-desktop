@@ -7,10 +7,12 @@ import './components/mz-application/mz-application';
 import MZIframe  from './components/mz-iframe/mz-iframe';
 import MZWindow from './components/mz-window/mz-window';
 import apps from './apps/apps';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const instance = new MZWindow({
-  name: 'TEST',
-  icon: require('./apps/assets/transmission.png').default
+  title: 'Transmission',
+  icon: require('./apps/assets/transmission.png').default,
 });
 
 const app = document.querySelector('#app');
@@ -24,10 +26,10 @@ const icons = apps.map((i) => {
 
 window.addEventListener('dblclick', (e) => {
   const el = e.target as HTMLElement;
-  console.log(el);
   if (el.tagName.toLowerCase() === 'mz-application') {
-    console.log('open app');
+    console.log('open app', uuidv4());
     const workspace = document.querySelector('.workspace');
+    // generate uuid
     // workspace.appendChild(new MZIframe({
     //   ...apps[2]
     // }));
