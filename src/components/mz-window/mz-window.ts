@@ -9,22 +9,15 @@ const ACTION_ICONS = {
 
 class MZWindow extends HTMLElement {
 
-  /** window icon */
-  icon: string = '';
-  /** window name */
-  title: string = '';
   /** app html container */
   container: HTMLElement = null;
-
 
   constructor(props: IWindowProps) {
     super();
 
     const {icon = '', name = '', container = null} = props;
-    this.icon = icon;
-    this.title = name;
     this.container = container || this;
-    console.log(this.container);
+
     const shadowRoot = this.attachShadow({mode: 'open'});
 
     shadowRoot.innerHTML = `
