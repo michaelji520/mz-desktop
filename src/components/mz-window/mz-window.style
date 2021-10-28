@@ -2,11 +2,11 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 10%;
-  left: 20%;
-  width: 60%;
-  height: 80%;
-  border-radius: 6px;
+  top: 0%;
+  left: 00%;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
   transition: all .2s ease-in-out;
   background-color: #fefefe;
   overflow: hidden;

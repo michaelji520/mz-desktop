@@ -1,5 +1,7 @@
 
-/** app type */
+/** App type enum */
 export enum APP_TYPE {
-  WEB_APP = 'WEB_APP'
+  WEBSITE = 'WEBSITE',
 }
+
+

@@ -53,6 +53,10 @@ class MZWindow extends HTMLElement {
     el && el.parentNode.removeChild(el);
   }
 
+  onClickMaximize = (e: Event) => {
+    
+  }
+
   /**
    * @description 当 custom element从文档DOM中删除时，被调用。
    */

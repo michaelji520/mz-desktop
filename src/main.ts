@@ -4,36 +4,48 @@ import './components/mz-desktop/mz-desktop';
 import './components/mz-container/mz-container';
 import './components/mz-taskbar/mz-taskbar';
 import './components/mz-application/mz-application';
-import MZIframe  from './components/mz-iframe/mz-iframe';
-import MZWindow from './components/mz-window/mz-window';
-import apps from './apps/apps';
-import { v4 as uuidv4 } from 'uuid';
-
-
-const instance = new MZWindow({
-  name: 'Transmission',
-  icon: require('./apps/assets/transmission.png').default,
-});
+import MZWebsite from './components/mz-website/mz-website';
+import apps, { IRunningApp, IAppConfig } from './apps/apps';
+import { uuidv4 } from './common/util';
+import { APP_TYPE } from './common/enum';
 
 const app = document.querySelector('#app');
 
 /** Opened app list */
-const activeApps = {};
+const runningAppList = {};
+
+function createAppInstance(app: IAppConfig) {
+  const instance: IRunningApp = {
+    ...app,
+    id: uuidv4(),
+    container: createAppContainer(app)
+  }
+
+  return instance;
+}
+
+function addRunningApp(instance: IRunningApp) {
+  runningAppList[instance.id] = instance;
+}
+
+function createAppContainer(app: IAppConfig) {
+  if (app.type === APP_TYPE.WEBSITE) return new MZWebsite(app);
+  return null;
+}
 
 const icons = apps.map((i) => {
-  return `<mz-application icon="${i.icon}" name="${i.name}" title="${i.name}"></mz-application>`;
+  return `<mz-application icon="${i.icon}" name="${i.name}" title="${i.name}" appid="${i.appid}"></mz-application>`;
 });
 
 window.addEventListener('dblclick', (e) => {
   const el = e.target as HTMLElement;
   if (el.tagName.toLowerCase() === 'mz-application') {
-    console.log('open app', uuidv4());
     const workspace = document.querySelector('.workspace');
-    // generate uuid
-    // workspace.appendChild(new MZIframe({
-    //   ...apps[2]
-    // }));
-    workspace.appendChild(instance);
+    const appid = Number(el.getAttribute('appid'));
+    const app = apps.find((i) => i.appid === appid);
+    const instance = createAppInstance(app);
+    addRunningApp(instance);
+    workspace.appendChild(instance.container);
   }
 });
 
