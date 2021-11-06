@@ -26,7 +26,14 @@ const appList: Array<IAppConfig> = [
     icon: require('./assets/vscode.png').default,
     link: 'https://vscode.dev/',
     type: APP_TYPE.WEBSITE
-  }
+  },
+  {
+    appid: 5,
+    name: 'Photopea',
+    icon: require('./assets/photopea.png').default,
+    link: 'https://www.photopea.com/',
+    type: APP_TYPE.WEBSITE
+  },
 ];
 
 export default appList;
