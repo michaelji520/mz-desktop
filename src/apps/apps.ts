@@ -57,4 +57,6 @@ export interface IRunningApp extends IAppConfig {
   id: string;
   /** app root element */
   container: HTMLElement;
+  /** window display status */
+  windowDisplayStatus: string;
 }

@@ -1,13 +1,14 @@
 import './common/style/reset.less';
 import './common/style/global.less';
+import './app.less';
 import './components/mz-desktop/mz-desktop';
-import './components/mz-container/mz-container';
+import MZContainer from './components/mz-container/mz-container';
 import './components/mz-taskbar/mz-taskbar';
 import './components/mz-application/mz-application';
 import MZWebsite from './components/mz-website/mz-website';
 import apps, { IRunningApp, IAppConfig } from './apps/apps';
 import { uuidv4 } from './common/util';
-import { APP_TYPE } from './common/enum';
+import { APP_TYPE, WINDOW_DISPLAY_STATUS } from './common/enum';
 
 const app = document.querySelector('#app');
 
@@ -18,9 +19,9 @@ function createAppInstance(app: IAppConfig) {
   const instance: IRunningApp = {
     ...app,
     id: uuidv4(),
-    container: createAppContainer(app)
+    container: createAppContainer(app),
+    windowDisplayStatus: WINDOW_DISPLAY_STATUS.MAXIMIZE
   }
-
   return instance;
 }
 
@@ -49,29 +50,17 @@ window.addEventListener('dblclick', (e) => {
   }
 });
 
+const container = new MZContainer({});
+
 app.innerHTML = `
-  <style>
-  mz-desktop {
-    height: calc(100% - 40px);
-    overflow: hidden;
-  }
-  mz-application {
-    margin: 4px;
-  }
-  .shortcuts {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  </style>
   <mz-container>
     <mz-desktop>
       <div class="shortcuts">
         ${icons.join('')}
       </div>
+      <div class="workspace">
+      </div>
     </mz-desktop>
-    <div class="workspace">
-    </div>
     <mz-taskbar></mz-taskbar>
   </mz-container>
 `;

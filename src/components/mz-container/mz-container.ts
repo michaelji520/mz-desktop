@@ -1,29 +1,23 @@
-// @ts-ignore
-import DEFAULT_BACKGROUND from './assets/default-background.jfif';
+// import DEFAULT_BACKGROUND from './assets/default-background.jfif';
+import style from './mz-container.style';
 
 class MZContainer extends HTMLElement {
-  constructor() {
+  constructor(params) {
     super();
 
-    const shadowRoot = this.attachShadow({mode: 'closed'});
-
+    const shadowRoot = this.attachShadow({mode: 'open'});
     shadowRoot.innerHTML = `
-    <style>
-    :host {
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-      height: 100vh;
-      background-image: url(${DEFAULT_BACKGROUND});
-      background-size: cover;
-      background-position: center;
-    }
-    </style>
+    <style>${style}</style>
     <slot></slot>
     `;
     this.oncontextmenu = () => false;
   }
 
+  connectedCallback() {
+  }
+
 }
 
 window.customElements.define('mz-container', MZContainer);
+
+export default MZContainer;
