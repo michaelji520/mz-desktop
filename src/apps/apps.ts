@@ -38,7 +38,7 @@ const appList: Array<IAppConfig> = [
     appid: 6,
     name: 'Aria2',
     icon: require('./assets/aria2.png').default,
-    link: 'https://sakura.zhangji.xyz/webui-aria2/docs/index.html',
+    link: 'http://10.244.186.0/webui-aria2/docs/index.html',
     type: APP_TYPE.WEBSITE
   },
 ];
