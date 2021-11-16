@@ -17,7 +17,7 @@ const appList: Array<IAppConfig> = [
     appid: 3,
     name: 'Transmission',
     icon: require('./assets/transmission.png').default,
-    link: 'http://10.244.186.0:9091/',
+    link: 'https://sakura.zhangji.xyz/transmission',
     type: APP_TYPE.WEBSITE
   },
   {
@@ -38,7 +38,7 @@ const appList: Array<IAppConfig> = [
     appid: 6,
     name: 'Aria2',
     icon: require('./assets/aria2.png').default,
-    link: 'http://10.244.186.0/webui-aria2/docs/index.html',
+    link: 'https://sakura.zhangji.xyz/aria2',
     type: APP_TYPE.WEBSITE
   },
 ];
