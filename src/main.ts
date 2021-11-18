@@ -3,6 +3,7 @@ import './common/style/global.less';
 import './app.less';
 import './components/mz-desktop/mz-desktop';
 import MZContainer from './components/mz-container/mz-container';
+import MZScreenLocker from './components/mz-screen-locker/mz-screen-locker';
 import './components/mz-taskbar/mz-taskbar';
 import './components/mz-application/mz-application';
 import MZWebsite from './components/mz-website/mz-website';
@@ -44,6 +45,7 @@ window.addEventListener('dblclick', (e) => {
     const workspace = document.querySelector('.workspace');
     const appid = Number(el.getAttribute('appid'));
     const app = apps.find((i) => i.appid === appid);
+    if (app.type === APP_TYPE.NEW_PAGE) return window.open(app.link, '_blank');
     const instance = createAppInstance(app);
     addRunningApp(instance);
     workspace.appendChild(instance.container);
@@ -51,6 +53,7 @@ window.addEventListener('dblclick', (e) => {
 });
 
 const container = new MZContainer({});
+const locker = new MZScreenLocker();
 
 app.innerHTML = `
   <mz-container>
@@ -63,4 +66,5 @@ app.innerHTML = `
     </mz-desktop>
     <mz-taskbar></mz-taskbar>
   </mz-container>
+  <mz-screen-locker></mz-screen-locker>
 `;

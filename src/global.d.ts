@@ -9,3 +9,4 @@ declare module '*.style' {
 }
 
 declare module '*.jfif';
+declare module '*.jpg';

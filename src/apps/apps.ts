@@ -41,6 +41,13 @@ const appList: Array<IAppConfig> = [
     link: 'https://sakura.zhangji.xyz/aria2',
     type: APP_TYPE.WEBSITE
   },
+  {
+    appid: 7,
+    name: 'Github',
+    icon: require('./assets/github.png').default,
+    link: 'https://github.com/michaelji520/mz-desktop',
+    type: APP_TYPE.NEW_PAGE,
+  },
 ];
 
 export default appList;
