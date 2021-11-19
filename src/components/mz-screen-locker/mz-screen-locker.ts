@@ -7,8 +7,16 @@ class MZScreenLocker extends HTMLElement {
 
     const shadowRoot = this.attachShadow({mode: 'open'});
     shadowRoot.innerHTML = `
-    <style>${style}</style>
-    <div class="container" ></div>
+    <style>
+      ${style}
+      :host, .container::before {
+        background-image: url(${LOCKER_IMAGE});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    </style>
+    <div class="container"></div>
     `;
   }
 
