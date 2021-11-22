@@ -28,12 +28,15 @@
     right: 0; 
     bottom: 0; 
     left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all .8s ease;
     margin: -30px;
-    transition: all 0.5s;
   }
 }
 
 .blur::before {
-  transform: scale(1.05);
-  filter: blur(4px);
+  transform: scale(1.1);
+  filter: blur(6px);
 }

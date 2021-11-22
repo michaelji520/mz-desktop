@@ -9,14 +9,15 @@ class MZScreenLocker extends HTMLElement {
     shadowRoot.innerHTML = `
     <style>
       ${style}
-      :host, .container::before {
+      .container, .container::before {
         background-image: url(${LOCKER_IMAGE});
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
       }
     </style>
-    <div class="container"></div>
+    <div class="container">
+      <div class="login">
+        <img src="">
+      </div>
+    </div>
     `;
   }
 
