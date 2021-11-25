@@ -1,5 +1,6 @@
 import style from './mz-screen-locker.style';
 import LOCKER_IMAGE from './assets/tomb-raider.jpg';
+import AVATAR from './assets/avatar.jpg';
 
 class MZScreenLocker extends HTMLElement {
   constructor() {
@@ -14,20 +15,26 @@ class MZScreenLocker extends HTMLElement {
       }
     </style>
     <div class="container">
-      <div class="login">
-        <img src="">
+      <div class="login-panel">
+        <img class="avatar" src="${AVATAR}">
+        <div class="username">Johnny Blaze</div>
+        <div class="login-btn">登录</div>
       </div>
     </div>
     `;
   }
 
   connectedCallback() {
-    this.addEventListener('click', () => {
-      console.log(this.shadowRoot.querySelector('.overlay'));
-      this.shadowRoot.querySelector('.container').classList.add('blur');
-
-      console.log(this);
+    const loginButton = this.shadowRoot.querySelector('.login-btn');
+    loginButton.addEventListener('click', this.handleLoginButtonClick);
+    this.addEventListener('click', (e) => {
+      this.shadowRoot.querySelector('.container').classList.add('active');
     })
+  }
+
+  handleLoginButtonClick = (e) => {
+    console.log(e.target)
+    this.shadowRoot.host.classList.add('logined');
   }
 
 }
