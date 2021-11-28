@@ -1,4 +1,4 @@
-// import DEFAULT_BACKGROUND from './assets/default-background.jfif';
+import DEFAULT_BACKGROUND from './assets/default-background.jfif';
 import style from './mz-container.style';
 
 class MZContainer extends HTMLElement {
@@ -14,6 +14,9 @@ class MZContainer extends HTMLElement {
   }
 
   connectedCallback() {
+    // @ts-ignore
+    this.shadowRoot.host.style.cssText = `background: url(${DEFAULT_BACKGROUND})`;
+    console.log(this.shadowRoot.host)
   }
 
 }

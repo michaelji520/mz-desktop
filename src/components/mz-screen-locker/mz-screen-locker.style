@@ -24,9 +24,6 @@
   flex-direction: column;
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
 }
 
 .container {
@@ -36,7 +33,7 @@
   justify-content: center;
 	margin: 0;
 	padding: 0;
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
   &::before {
@@ -51,7 +48,7 @@
     background-position: center;
     transition: all 10s ease;
     margin: -30px;
-    filter: blur(20px);
+    filter: blur(16px);
   }
   .login-panel {
     display: flex;
@@ -80,4 +77,9 @@
       } 
     }
   }
+}
+
+.logined {
+  animation: fadeout .5s;
+  display: none;
 }

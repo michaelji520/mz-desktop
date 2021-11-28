@@ -27,14 +27,12 @@ class MZScreenLocker extends HTMLElement {
   connectedCallback() {
     const loginButton = this.shadowRoot.querySelector('.login-btn');
     loginButton.addEventListener('click', this.handleLoginButtonClick);
-    this.addEventListener('click', (e) => {
-      this.shadowRoot.querySelector('.container').classList.add('active');
-    })
   }
 
   handleLoginButtonClick = (e) => {
     console.log(e.target)
-    this.shadowRoot.host.classList.add('logined');
+    // this.shadowRoot.host.classList.add('fadeout');
+    this.shadowRoot.querySelector('.container').classList.add('logined');
   }
 
 }
