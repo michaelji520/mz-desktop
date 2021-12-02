@@ -14,9 +14,7 @@ class MZContainer extends HTMLElement {
   }
 
   connectedCallback() {
-    // @ts-ignore
-    this.shadowRoot.host.style.cssText = `background: url(${DEFAULT_BACKGROUND})`;
-    console.log(this.shadowRoot.host)
+    (this.shadowRoot.host as HTMLElement).style.cssText = `background-image: url(${DEFAULT_BACKGROUND})`;
   }
 
 }
