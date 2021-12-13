@@ -55,8 +55,8 @@
     flex-direction: column;
     z-index: 1;
     .avatar {
-      width: 160px;
-      height: 160px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
     }
     .username {
