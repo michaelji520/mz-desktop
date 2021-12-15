@@ -93,5 +93,5 @@
 
 .logined {
   animation: fadeout .5s;
-  display: none;
+  opacity: 0;
 }
