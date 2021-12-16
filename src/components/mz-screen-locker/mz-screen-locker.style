@@ -95,3 +95,6 @@
   animation: fadeout .5s;
   opacity: 0;
 }
+.hide {
+  display: none;
+}
