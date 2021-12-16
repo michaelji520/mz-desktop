@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
-const isAutoPublish = process.env.AUTO_PUBLISH === 'true';
 
 module.exports = {
   mode: isProd ? 'production' : 'development',
@@ -21,8 +20,15 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   devServer: isProd ? undefined : {
-    host: '0.0.0.0',
-    disableHostCheck: true
+    host: '127.0.0.1',
+    disableHostCheck: true,
+    proxy: {
+      '/api': {
+        target: 'https://sakura.zhangji.xyz',
+        secure: false,
+        changeOrigin: true
+      },
+    }
   },
   module: {
     rules: [

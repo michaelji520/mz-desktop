@@ -31,8 +31,11 @@ class MZScreenLocker extends HTMLElement {
 
   handleLoginButtonClick = (e) => {
     console.log(e.target)
-    // this.shadowRoot.host.classList.add('fadeout');
-    this.shadowRoot.querySelector('.container').classList.add('logined');
+    fetch('/api/hello')
+      .then(response => console.log(response));
+    const container = this.shadowRoot.querySelector('.container');
+    container.classList.add('logined');
+    setTimeout(() => container.classList.add('hide'), 500);
   }
 
 }
