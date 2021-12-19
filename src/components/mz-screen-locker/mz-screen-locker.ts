@@ -1,5 +1,5 @@
 import style from './mz-screen-locker.style';
-import LOCKER_IMAGE from './assets/tomb-raider.jpg';
+import LOCKER_IMAGE from './assets/background-blured.jpg';
 import AVATAR from './assets/guest.jpeg';
 
 class MZScreenLocker extends HTMLElement {

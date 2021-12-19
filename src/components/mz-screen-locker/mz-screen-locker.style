@@ -48,7 +48,6 @@
     background-position: center;
     transition: all 10s ease;
     margin: -30px;
-    filter: blur(16px);
   }
   .login-panel {
     display: flex;

@@ -77,22 +77,13 @@ module.exports = {
     isProd && new WebpackPwaManifest({
       name: 'MZ Desktop Toolkit',
       short_name: 'MZDesktop',
-      description: 'My awesome Progressive Web App!',
+      description: 'My Awesome Progressive Web App!',
       background_color: '#CCCCCC',
       crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
       icons: [
         {
           src: path.resolve(__dirname, '../src/assets/icon.png'),
-          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
-        },
-        {
-          src: path.resolve('src/assets/large-icon.png'),
-          size: '1024x1024' // you can also use the specifications pattern
-        },
-        {
-          src: path.resolve('src/assets/maskable-icon.png'),
-          size: '1024x1024',
-          purpose: 'maskable'
+          sizes: [96, 128] // multiple sizes
         }
       ]
     })
