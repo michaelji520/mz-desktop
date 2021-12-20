@@ -79,7 +79,7 @@ module.exports = {
       filename: 'manifest.webmanifest',
       name: 'MZ Desktop Toolkit',
       short_name: 'MZDesktop',
-      display: 'standalone',
+      display: 'fullscreen',
       description: 'My Awesome Progressive Web App!',
       background_color: '#ccc',
       theme_color: '#ccc',
@@ -90,7 +90,8 @@ module.exports = {
       icons: [
         {
           src: path.resolve(__dirname, '../src/assets/logo.png'),
-          sizes: [64, 128] // multiple sizes
+          // auto generate multiple size icon, at lease have 192 size
+          sizes: [64, 128, 192] // multiple sizes
         }
       ]
     }),
