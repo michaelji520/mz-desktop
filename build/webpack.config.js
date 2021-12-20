@@ -75,15 +75,19 @@ module.exports = {
     }),
     isProd && new CleanWebpackPlugin(),
     isProd && new WebpackPwaManifest({
+      filename: 'manifest.webmanifest',
       name: 'MZ Desktop Toolkit',
       short_name: 'MZDesktop',
+      display: 'standalone',
       description: 'My Awesome Progressive Web App!',
-      background_color: '#CCCCCC',
+      background_color: '#ccc',
+      theme_color: '#ccc',
+      start_url: "/?from=pwa",
       crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
       icons: [
         {
           src: path.resolve(__dirname, '../src/assets/logo.png'),
-          size: '128x128'
+          sizes: [64, 128] // multiple sizes
         }
       ]
     })
