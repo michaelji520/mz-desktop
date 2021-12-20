@@ -84,7 +84,7 @@ module.exports = {
       background_color: '#ccc',
       theme_color: '#ccc',
       start_url: "/?from=pwa",
-      crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+      crossorigin: null, //can be null, use-credentials or anonymous
       // need to add follow line, cause plugin set publicPath 'auto' as default value
       publicPath: '/' ,
       icons: [
