@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     filename: isProd ? '[name].[hash:8].js' : '[name].js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
   },
   resolve: {
     alias: {
@@ -84,6 +84,8 @@ module.exports = {
       theme_color: '#ccc',
       start_url: "/?from=pwa",
       crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+      // need to add follow line, cause plugin set publicPath 'auto' as default value
+      publicPath: '/' ,
       icons: [
         {
           src: path.resolve(__dirname, '../src/assets/logo.png'),
