@@ -79,11 +79,12 @@ module.exports = {
       filename: 'manifest.webmanifest',
       name: 'MZ Desktop Toolkit',
       short_name: 'MZDesktop',
-      display: 'fullscreen',
+      display: 'standalone',
       description: 'My Awesome Progressive Web App!',
       background_color: '#ccc',
       theme_color: '#ccc',
       start_url: "/?from=pwa",
+      orientation: 'landscape', // portrait
       crossorigin: null, //can be null, use-credentials or anonymous
       // need to add follow line, cause plugin set publicPath 'auto' as default value
       publicPath: '/' ,
