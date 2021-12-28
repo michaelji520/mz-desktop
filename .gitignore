@@ -1,3 +1,4 @@
 dist
 node_modules
 build/PUBLISH_CONFIG.js
+.DS_Store

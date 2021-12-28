@@ -4,7 +4,6 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const WebpackPwaManifest  = require('webpack-pwa-manifest');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
-
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -70,16 +69,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'MZ-DESKTOP',
       filename: 'index.html',
-      favicon: path.resolve(__dirname, '../public/favicon.ico'),
+      favicon: path.resolve(__dirname, '../src/assets/logo.png'),
       template: path.resolve(__dirname, '../public/index.html'),
       chunks: ['main']
     }),
     isProd && new CleanWebpackPlugin(),
-    isProd && new WebpackPwaManifest({
+    new WebpackPwaManifest({
       filename: 'manifest.webmanifest',
       name: 'MZ Desktop Toolkit',
       short_name: 'MZDesktop',
-      display: 'standalone',
+      display: 'fullscreen',
       description: 'My Awesome Progressive Web App!',
       background_color: '#ccc',
       theme_color: '#ccc',
@@ -96,26 +95,21 @@ module.exports = {
         }
       ]
     }),
-    isProd && new WorkboxPlugin.GenerateSW({
-      // Do not precache images
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+    new WorkboxPlugin.GenerateSW({
+      // attempt to identify and delete any precaches created by older, incompatible versions.
+      cleanupOutdatedCaches: true,
 
       // Define runtime caching rules.
       runtimeCaching: [{
         // Match any request that ends with .png, .jpg, .jpeg or .svg.
         urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-
         // Apply a cache-first strategy.
         handler: 'CacheFirst',
-
         options: {
           // Use a custom cache name.
           cacheName: 'images',
-
           // Only cache 10 images.
-          expiration: {
-            maxEntries: 10,
-          },
+          expiration: { maxEntries: 10 },
         },
       }],
     })
