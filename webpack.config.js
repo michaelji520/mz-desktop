@@ -9,15 +9,15 @@ const isProd = process.env.NODE_ENV === 'production';
 module.exports = {
   mode: isProd ? 'production' : 'development',
   entry: {
-    main: path.resolve(__dirname, '../src/main.ts'),
+    main: path.resolve(__dirname, './src/main.ts'),
   },
   output: {
     filename: isProd ? '[name].[hash:8].js' : '[name].js',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, './dist'),
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src')
+      '@': path.resolve(__dirname, './src')
     },
     extensions: ['.ts', '.js'],
   },
@@ -69,8 +69,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'MZ-DESKTOP',
       filename: 'index.html',
-      favicon: path.resolve(__dirname, '../src/assets/logo.png'),
-      template: path.resolve(__dirname, '../public/index.html'),
+      favicon: path.resolve(__dirname, './src/assets/favicon.ico'),
+      template: path.resolve(__dirname, './public/index.html'),
       chunks: ['main']
     }),
     isProd && new CleanWebpackPlugin(),
@@ -89,9 +89,9 @@ module.exports = {
       publicPath: '/' ,
       icons: [
         {
-          src: path.resolve(__dirname, '../src/assets/logo.png'),
+          src: path.resolve(__dirname, './src/assets/icon.jpeg'),
           // auto generate multiple size icon, at lease have 192 size
-          sizes: [64, 128, 192] // multiple sizes
+          sizes: [64, 128, 192, 256] // multiple sizes
         }
       ]
     }),
