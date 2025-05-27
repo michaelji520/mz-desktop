@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const WebpackPwaManifest  = require('webpack-pwa-manifest');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+// const WebpackPwaManifest  = require('webpack-pwa-manifest');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -25,11 +25,11 @@ module.exports = {
     host: '127.0.0.1',
     disableHostCheck: true,
     proxy: {
-      '/api': {
-        target: 'https://sakura.zhangji.xyz',
-        secure: false,
-        changeOrigin: true
-      },
+      // '/api': {
+      //   target: 'https://sakura.zhangji.xyz',
+      //   secure: false,
+      //   changeOrigin: true
+      // },
     }
   },
   module: {
@@ -74,44 +74,44 @@ module.exports = {
       chunks: ['main']
     }),
     isProd && new CleanWebpackPlugin(),
-    new WebpackPwaManifest({
-      filename: 'manifest.webmanifest',
-      name: 'MZ Desktop Toolkit',
-      short_name: 'MZDesktop',
-      display: 'fullscreen',
-      description: 'My Awesome Progressive Web App!',
-      background_color: '#ccc',
-      theme_color: '#ccc',
-      start_url: "/?from=pwa",
-      orientation: 'landscape', // portrait
-      crossorigin: null, //can be null, use-credentials or anonymous
-      // need to add follow line, cause plugin set publicPath 'auto' as default value
-      publicPath: '/' ,
-      icons: [
-        {
-          src: path.resolve(__dirname, './src/assets/icon.jpeg'),
-          // auto generate multiple size icon, at lease have 192 size
-          sizes: [64, 128, 192, 256] // multiple sizes
-        }
-      ]
-    }),
-    new WorkboxPlugin.GenerateSW({
-      // attempt to identify and delete any precaches created by older, incompatible versions.
-      cleanupOutdatedCaches: true,
+    // new WebpackPwaManifest({
+    //   filename: 'manifest.webmanifest',
+    //   name: 'MZ Desktop Toolkit',
+    //   short_name: 'MZDesktop',
+    //   display: 'fullscreen',
+    //   description: 'My Awesome Progressive Web App!',
+    //   background_color: '#ccc',
+    //   theme_color: '#ccc',
+    //   start_url: "/?from=pwa",
+    //   orientation: 'landscape', // portrait
+    //   crossorigin: null, //can be null, use-credentials or anonymous
+    //   // need to add follow line, cause plugin set publicPath 'auto' as default value
+    //   publicPath: '/' ,
+    //   icons: [
+    //     {
+    //       src: path.resolve(__dirname, './src/assets/icon.jpeg'),
+    //       // auto generate multiple size icon, at lease have 192 size
+    //       sizes: [64, 128, 192, 256] // multiple sizes
+    //     }
+    //   ]
+    // }),
+    // new WorkboxPlugin.GenerateSW({
+    //   // attempt to identify and delete any precaches created by older, incompatible versions.
+    //   cleanupOutdatedCaches: true,
 
-      // Define runtime caching rules.
-      runtimeCaching: [{
-        // Match any request that ends with .png, .jpg, .jpeg or .svg.
-        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-        // Apply a cache-first strategy.
-        handler: 'CacheFirst',
-        options: {
-          // Use a custom cache name.
-          cacheName: 'images',
-          // Only cache 10 images.
-          expiration: { maxEntries: 10 },
-        },
-      }],
-    })
+    //   // Define runtime caching rules.
+    //   runtimeCaching: [{
+    //     // Match any request that ends with .png, .jpg, .jpeg or .svg.
+    //     urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+    //     // Apply a cache-first strategy.
+    //     handler: 'CacheFirst',
+    //     options: {
+    //       // Use a custom cache name.
+    //       cacheName: 'images',
+    //       // Only cache 10 images.
+    //       expiration: { maxEntries: 10 },
+    //     },
+    //   }],
+    // })
   ].filter(i => !!i)
 };

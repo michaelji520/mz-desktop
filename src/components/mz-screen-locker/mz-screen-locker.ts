@@ -1,6 +1,6 @@
 import style from './mz-screen-locker.style';
 import LOCKER_IMAGE from './assets/background-blured.jpg';
-import AVATAR from './assets/guest.jpeg';
+import AVATAR from './assets/avatar-shield.png';
 
 class MZScreenLocker extends HTMLElement {
   constructor() {
@@ -17,7 +17,7 @@ class MZScreenLocker extends HTMLElement {
     <div class="container">
       <div class="login-panel">
         <img class="avatar" src="${AVATAR}" alt="user-avatar">
-        <div class="username">Guest</div>
+        <div class="username"></div>
         <div class="login-btn">登录</div>
       </div>
     </div>
