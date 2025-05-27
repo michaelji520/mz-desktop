@@ -52,8 +52,8 @@ window.addEventListener('dblclick', (e) => {
   }
 });
 
-const container = new MZContainer({});
-const locker = new MZScreenLocker();
+new MZContainer({});
+new MZScreenLocker();
 
 app.innerHTML = `
   <mz-container>
@@ -65,6 +65,6 @@ app.innerHTML = `
       </div>
     </mz-desktop>
     <mz-taskbar></mz-taskbar>
+    <mz-screen-locker></mz-screen-locker>
   </mz-container>
-  <mz-screen-locker></mz-screen-locker>
 `;
